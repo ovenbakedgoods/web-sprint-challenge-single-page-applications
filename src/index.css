@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.size-dropdown
+{
+  background-color: grey;
+  width: 17rem;
+}
+
+.sauce
+{
+  background-color: grey;
+  width: 17rem;
+}
+
+.toppings
+{
+  background-color: grey;
+  width: 17rem;
+}
+
+label {
+  display: block;
+}
+
+.special_instructions{
+ color: blue;
+ padding: 4rem;
+ margin: 5rem;
+  
+}
