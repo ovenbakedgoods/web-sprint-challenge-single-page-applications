@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as yup from "yup";
-import {axios as ax} from "axios";
+import {axios} from "axios";
 import { createBrowserHistory as history } from 'history';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link, Route, Switch } from 'react-router-dom';
@@ -41,7 +41,7 @@ export default function Form()
     const[form, setForm] = useState(
         initialFormValues
     ); 
-    const [errors, setErrors] = useState(initialFormValues);
+   /* const [errors, setErrors] = useState(initialFormValues);
 
     const setFormErrors = (name, value) => {
         yup
@@ -50,7 +50,7 @@ export default function Form()
           .then(() => setErrors({ ...errors, [name]: "" }))
           .catch((err) => setErrors({ ...errors, [name]: err.errors[0] }));
       };
-    
+    */
 //
 //const newToppings = []
 //const newArray = update(initialArray, {$push: [4]}); // => [1, 2, 3, 4]
@@ -58,7 +58,7 @@ export default function Form()
         //const { value, name } = e.target;
         const { name, type, value, checked } = e.target;
         setForm({ ...form, [name]: value });
-        setFormErrors(name, value);
+        //setFormErrors(name, value);
         console.log(form)
      
       };
@@ -84,10 +84,10 @@ export default function Form()
           special_instructions: form.special_instructions
         
         };
-        ax
-          .post("https://reqres.in/api/orders", newOrder)
+        axios
+          .post("https://reqres.in/api/chickens", newOrder)
           .then((res) => {
-            console.log(res.data);
+            console.log(res);
             setForm(initialFormValues);
             
           })
@@ -298,7 +298,7 @@ export default function Form()
           </label>
           </div>
           <div className="submit">
-              <Button>Submit</Button>
+              <Button onClick={submit}>Submit</Button>
           </div>
           </form>
         </div>
