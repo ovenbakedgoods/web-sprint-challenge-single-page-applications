@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as yup from "yup";
-import {axios} from "axios";
+import axios from "axios";
 import { createBrowserHistory as history } from 'history';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Link, Route, Switch } from 'react-router-dom';
@@ -87,7 +87,7 @@ export default function Form()
         axios
           .post("https://reqres.in/api/chickens", newOrder)
           .then((res) => {
-            console.log(res);
+            console.log(res.data);
             setForm(initialFormValues);
             
           })
@@ -105,7 +105,7 @@ export default function Form()
         </Router>
         </div>
         <h3>Build Your Own ZA</h3>
-        <form onSubmit={trySubmit}>
+        <form onSubmit={submit}>
         <div className= "customer-name">
         <label>
           Pick up Name:
